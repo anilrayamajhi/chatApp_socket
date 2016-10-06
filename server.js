@@ -21,7 +21,7 @@ socketServer.on('connection', function(socket){
     })
 
     socket.on('chat message', function(phrase){
-      console.log(phrase);
+      socketServer.emit('finish', phrase);
     })
 
 

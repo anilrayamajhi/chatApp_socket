@@ -16,23 +16,24 @@
 
   </head>
   <body>
-    <h1>Welcome to liveDraw</h1>
-    <div>
+    <h1>GI Chat</h1>
+    <p>
 
-    </div>
-    <textarea class="form" type="text-area" name="name" value="" style="width:870px;height: 37px"></textarea><br /><br />
+    </p>
+    <textarea class="form" type="text-area" name="name" value="" style="width:700px;height: 37px"></textarea><br /><br />
     <button class="btn btn-info" type="button" name="button">SEND</button>
   </body>
   <script>
       var socket = io();
       var form = $('.form');
       $('button').on('click', function(){
-        $('div').append(`<div class="wells">${form.val()}</div><br />`)
+        $('p').append(`<div class="wells">${form.val()}</div><br />`)
         socket.emit('chat message', form.val());
         form.val('');
+        return false;
       })
 
-      $("input").keypress(function(event) {
+      $(".form").keypress(function(event) {
           if (event.which == 13) {
               event.preventDefault();
               $("form").submit();

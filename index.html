@@ -26,27 +26,27 @@
   <script>
       var socket = io();
       var form = $('.form');
-      submit ()
 
-      $(".form").on('keypress', function(event) {
-          if (event.which == 13) {
-              event.preventDefault();
-              submit();
-          }
+      $('button').on('click', function(){
+        socket.emit('chat message', form.val());
+        form.val('');
+        return false;
       });
 
-
-////////Refactoring click event//////
-      function submit (){
-        $('button').on('click', function(){
-          $('p').append(`<div class="well text-center" style="width:700px">${form.val()}</div><br />`)
-          socket.emit('chat message', form.val());
-          form.val('');
-        })
-      }
+      // $(".form").on('keypress', function(event) {
+      //     if (event.which == 13) {
+      //         event.preventDefault();
+      //         submit();
+      //     }
+      });
 
       socket.on('finish', function(phrase){
         $('p').append(`<div class="well text-center" style="width:700px">${phrase}</div><br />`)
       });
+
+////////Refactoring click event//////
+      // function submit (){
+      //
+      // }
   </script>
 </html>

@@ -15,17 +15,12 @@ app.get('/', function(req, res) {
 socketServer.on('connection', function(socket){
   console.log('A client connected');
 
-    socket.on('mexico', function(phrase){
-        console.log(phrase);
-        socket.emit('mex-res', 'Igot your message');
-    })
-
     socket.on('chat message', function(phrase){
       socketServer.emit('finish', phrase);
     })
 
 
-    socket.on('disconnect', function(socekt){
+    socket.on('disconnect', function(socket){
       console.log('A client is disconnected');
     });
 })

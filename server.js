@@ -4,7 +4,7 @@ var
   socketIO = require('socket.io'),
   socketServer = socketIO(http);
 
-var port = (process.env.PORT || 3000);
+var port = (process.env.PORT || 666);
 
 app.get('/', function(req, res) {
   // res.sendfile('index.html'); inthis case same as
@@ -26,5 +26,5 @@ socketServer.on('connection', function(socket){
 })
 
 http.listen(port, function(){
-  console.log(`Server start end on port: ${port}`);
+  console.log(`🔥🔥🔥 Firing up server at PORT: ${port}`);
 });

@@ -9,20 +9,21 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 <style media="screen">
-  body {
+  /* body {
     margin-left: 37px;
-    min-width: 770px;
-  }
+  } */
 </style>
 
   </head>
   <body>
-    <h1>GI Chat</h1>
-    <p></p>
-    <span style="position:fixed;bottom:37px">
-      <input class="form" type="text-area" name="name" value="" style="width:700px;height: 37px" /><br /><br />
-      <button class="btn btn-info" type="button" name="button">SEND</button>
-    </span>
+    <div class="container-fluid">
+      <h1>Just Chat</h1>
+      <p></p>
+      <span style="position:fixed;bottom:37px">
+        <input class="form form-control" type="text-area" name="name" value="" style="height: 37px" /><br /><br />
+        <button class="btn btn-info" type="button" name="button">SEND</button>
+      </span>
+    </div>
   </body>
   <script>
       var socket = io();
@@ -40,7 +41,7 @@
       });
 
       socket.on('finish', function(phrase){
-        $('p').prepend(`<div class="well text-center" style="width:700px">${phrase}</div><br />`)
+        $('p').prepend(`<div class="well" style="width:100%">${phrase}</div><br />`)
       });
 
 ////////Refactoring click event//////
